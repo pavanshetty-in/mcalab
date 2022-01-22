@@ -1,0 +1,58 @@
+                        Lab4(index.html)
+
+<html>
+<head>
+<title>TODO supply a title</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+<form action="myserv" method="get">
+Username : <input type="text" name="user"/><br>
+password :<input type="password" name="pass"/><br>
+<input type="submit" />
+</form>
+</body>
+</html>
+                           Sevlet
+
+import java.io.IOException;
+import java.io.PrintWriter;
+import javax.servlet.ServletException;
+import javax.servlet.http.Cookie;
+import javax.servlet.http.*;
+
+public class first extends HttpServlet {
+@Override
+protected void doGet(HttpServletRequest request, HttpServletResponse response)
+throws ServletException, IOException {
+PrintWriter out = response.getWriter();
+Cookie[] cks=request.getCookies();
+out.println("Welcome"+cks[0].getValue());
+}
+}
+                          Another servlet
+
+import java.io.IOException;
+import java.io.PrintWriter;
+import javax.servlet.ServletException;
+import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+public class myserv extends HttpServlet {
+@Override
+protected void doGet(HttpServletRequest request, HttpServletResponse response)
+throws ServletException, IOException {
+String name=request.getParameter("user");
+String pass=request.getParameter("pass");
+PrintWriter out = response.getWriter();
+if(pass.equals("123"))
+{
+Cookie ck=new Cookie("user",name);
+response.addCookie(ck);
+response.sendRedirect("first");
+}
+}
+}

@@ -1,0 +1,67 @@
+                      Lab3(index.html)
+
+
+<html>
+<head>
+<title>TODO supply a title</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+<form action="myserv" method="get">
+Username : <input type="text" name="user"/><br>
+password :<input type="password" name="pass"/><br>
+<input type="submit" value="get"/>
+</form>
+<form action="myserv" method="post">
+Username : <input type="text" name="user1"/><br>
+password :<input type="password" name="pass1"/><br>
+<input type="submit" value="post"/>
+</form>
+</body>
+</html>
+                        Servlet
+
+import java.io.IOException;
+import java.io.PrintWriter;
+import javax.servlet.ServletException;
+import javax.servlet.http.*;
+
+public class myserv extends HttpServlet {
+@Override
+protected void doGet(HttpServletRequest request, HttpServletResponse response)
+throws ServletException, IOException {
+String name=request.getParameter("user");
+String pass=request.getParameter("pass");
+PrintWriter out = response.getWriter();
+/* TODO output your page here. You may use following sample code. */
+out.println("<!DOCTYPE html>");
+out.println("<html>");
+out.println("<head>");
+out.println("<title>Servlet myserv</title>");
+out.println("</head>");
+out.println("<body>");
+out.println("<h1>user name :" + name + "</h1>");
+out.println("<h3>password :" + pass + "</h3>");
+out.println("</body>");
+out.println("</html>");
+}
+@Override
+protected void doPost(HttpServletRequest request, HttpServletResponse response)
+throws ServletException, IOException {
+String name1=request.getParameter("user1");
+String pass1=request.getParameter("pass1");
+PrintWriter out = response.getWriter();
+/* TODO output your page here. You may use following sample code. */
+out.println("<!DOCTYPE html>");
+out.println("<html>");
+out.println("<head>");
+out.println("<title>Servlet myserv</title>");
+out.println("</head>");
+out.println("<body>");
+out.println("<h1>user name :" + name1 + "</h1>");
+out.println("<h3>password :" + pass1 + "</h3>");
+out.println("</body>");
+out.println("</html>");
+}
+}

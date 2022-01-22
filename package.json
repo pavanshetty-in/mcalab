@@ -1,0 +1,24 @@
+{
+  "name": "mcalab",
+  "version": "1.0.0",
+  "description": "download mca lab program",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon src/app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pavanshetty-in/mcalab.git"
+  },
+  "author": "Pavan Shetty",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/pavanshetty-in/mcalab/issues"
+  },
+  "homepage": "https://github.com/pavanshetty-in/mcalab#readme",
+  "dependencies": {
+    "express": "^4.17.2",
+    "nodemon": "^2.0.15"
+  }
+}
