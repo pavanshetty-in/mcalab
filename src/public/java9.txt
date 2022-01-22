@@ -1,0 +1,57 @@
+                          Index.html
+
+<html>
+<head>
+<title>page attribute</title>
+</head>
+<body>
+<h2>Read two value to divide</h2>
+<form action="lab09.jsp">
+Enter First Value:<input type="text" name="val1"/><br>
+Enter Second Value:<input type="text" name="val2"/><br>
+<input type="submit" value="Calculate"/>
+</form>
+</body>
+</html>             Lab09.jsp
+
+<%@page import="java.util.Date"
+contentType="text/html"
+pageEncoding="UTF-8"
+session="true"
+buffer="16kb"
+autoFlush="true"
+isThreadSafe="true"
+isELIgnored="false"
+extends="org.apache.jasper.runtime.HttpJspBase"
+info="Lab 10: demo of all page directive" language="java"
+errorPage="showerror.jsp"
+%>
+<!DOCTYPE html>
+<html>
+<head>
+<title>JSP Page</title> </head>
+<%! int a, b;
+Date d=new Date();%>
+<body>
+<h2>Welcome! Today is <%= d.getDate()%></h2>
+<%
+String str1=request.getParameter("val1");
+String str2=request.getParameter("val2");
+a=Integer.parseInt(str1);
+b=Integer.parseInt(str2);%>
+<h2>Using Expression Language</h2>
+A= ${param.val1}<br>
+B= ${param.val2}<br>
+<h3>Result: <%= a / b %></h3>
+</body>
+</html>
+
+                          showerror.jsp
+<%@page isErrorPage="true"%>
+<!DOCTYPE html> <html>
+<head>
+<title>JSP Page</title> </head>
+<body>
+<h3>Sorry an exception occured!</h3>
+<h2>The exception is: <%= exception %> </h2> </body>
+</html>

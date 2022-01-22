@@ -1,0 +1,60 @@
+                          Index.html
+
+<html>
+<head>
+<title>Student Info</title>
+</head>
+<body>
+<form action="userdetails.jsp" method="post">
+<center><h2> Enter the student details </h2>
+<p> Name: <input type="text" name="name"><br> </p>
+<p>USN: <input type="text" name="usn"><br> </p>
+<p>Branch: <input type="text" name="branch"><br></p>
+<input type="submit" value="register"> </center>
+</form>
+</body>
+</html>
+                       userdetails.jsp
+
+<html>
+<head>
+<title>JSP Page</title>
+</head>
+<body>
+<jsp:useBean id="userinfo" class="mypack.Details">
+</jsp:useBean>
+<jsp:setProperty property="*" name="userinfo" />
+<strong> Entered Details are below: </strong>
+<p>
+<jsp:getProperty property="name" name="userinfo"/><br>
+<jsp:getProperty property="usn" name="userinfo"/><br>
+<jsp:getProperty property="branch" name="userinfo" /><br>
+</p>
+</body>
+</html>
+                          Details.java
+package mypack;
+import java.io.Serializable;
+public class Details implements Serializable{
+private String name;
+public String getName() {
+return name;
+}
+public void setName(String name) {
+this.name = name;
+}
+public String getBranch() {
+return branch;
+}
+public void setBranch(String branch) {
+this.branch = branch;
+}
+public String getUsn() {
+return usn;
+}
+public void setUsn(String usn) {
+this.usn = usn;
+}
+private String branch;
+private String usn;
+}

@@ -58,6 +58,30 @@ app.get('/get/java5',async (req,res) => {
         console.error(err);
     }
 });
+app.get('/get/java6',async (req,res) => {
+    try{
+    res.download(static_path +'/java6.txt','java6.txt');
+    }
+    catch(err){
+        console.error(err);
+    }
+});
+app.get('/get/java8',async (req,res) => {
+    try{
+    res.download(static_path +'/java8.txt','java8.txt');
+    }
+    catch(err){
+        console.error(err);
+    }
+});
+app.get('/get/java9',async (req,res) => {
+    try{
+    res.download(static_path +'/java9.txt','java9.txt');
+    }
+    catch(err){
+        console.error(err);
+    }
+});
 
 app.listen(PORT,() => {
     console.log(`listening on port ${PORT}`);
