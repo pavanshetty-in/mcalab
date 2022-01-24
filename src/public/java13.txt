@@ -1,0 +1,29 @@
+                  BookEB java(Entity Bean)
+
+    private String name; 
+private int price; 
+
+
+
+                       index.jsp
+<form action="BookServlet"> 
+Enter Text: <input type="text" name="text"/> 
+Enter Price: <input type="text" name="price"/> 
+<input type="submit" value="Click Here"/> 
+</form> 
+
+               BookServlet.java(Servlet)
+private BookEBFacadeLocal bookEBFacade; 
+
+String tname=request.getParameter("text"); 
+int pr=Integer.parseInt(request.getParameter("price")); 
+BookEB obj=new BookEB(); 
+obj.setName(tname); 
+obj.setPrice(pr); 
+bookEBFacade.create(obj); 
+out.println("<h1>Table Created and Data Inserted</h1>"); 
+} 
+}
+
+
+

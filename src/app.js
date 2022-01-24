@@ -82,6 +82,22 @@ app.get('/get/java9',async (req,res) => {
         console.error(err);
     }
 });
+app.get('/get/java11',async (req,res) => {
+    try{
+    res.download(static_path +'/java11.txt','java11.txt');
+    }
+    catch(err){
+        console.error(err);
+    }
+});
+app.get('/get/java13',async (req,res) => {
+    try{
+    res.download(static_path +'/java13.txt','java13.txt');
+    }
+    catch(err){
+        console.error(err);
+    }
+});
 
 app.listen(PORT,() => {
     console.log(`listening on port ${PORT}`);
