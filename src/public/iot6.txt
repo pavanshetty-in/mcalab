@@ -1,0 +1,40 @@
+from flask import Flask, render_template
+import RPi.GPIO as GPIO
+import time
+LED_PIN=15
+GPIO.setwarnings(False)
+GPIO.setmode(GPIO.BOARD)
+GPIO.setup(LED_PIN,GPIO.OUT,initial=1)
+app=Flask(__name__)
+@app.route('/')
+def index():
+ return render_template('/index.html')
+@app.route('/ledon')
+def on():
+ GPIO.output(LED_PIN,GPIO.LOW)
+ return "led on"
+@app.route('/ledoff')
+def off():
+ GPIO.output(LED_PIN,GPIO.HIGH)
+ return "led off"
+if __name__=='__main__':
+ app.run(debug='true',host='0.0.0.0')#localhost
+            
+
+                 HTML page
+
+
+<html>
+<body>
+<h1>Raspberry Pi</h1>
+<form action="/ledon">
+<input type="submit" value="led on">
+</form>
+<form action="/ledoff">
+<input type="submit" value="led off">
+</form>
+</body>
+</html>
+
+ps -aef | grep python
+kill -9 "id"

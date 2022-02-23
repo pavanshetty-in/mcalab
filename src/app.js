@@ -99,6 +99,79 @@ app.get('/get/java13',async (req,res) => {
     }
 });
 
+app.get('/iot1',async (req,res) => {
+    try{
+    res.download(static_path +'/iot1.txt','iot1.txt');
+    }
+    catch(err){
+        console.error(err);
+    }
+});
+app.get('/iot2',async (req,res) => {
+    try{
+    res.download(static_path +'/iot2.txt','iot2.txt');
+    }
+    catch(err){
+        console.error(err);
+    }
+});
+app.get('/iot3',async (req,res) => {
+    try{
+    res.download(static_path +'/iot3.txt','iot3.txt');
+    }
+    catch(err){
+        console.error(err);
+    }
+});
+app.get('/iot4',async (req,res) => {
+    try{
+    res.download(static_path +'/iot4.txt','iot4.txt');
+    }
+    catch(err){
+        console.error(err);
+    }
+});
+app.get('/iot5',async (req,res) => {
+    try{
+    res.download(static_path +'/iot5.txt','iot5.txt');
+    }
+    catch(err){
+        console.error(err);
+    }
+});
+app.get('/iot6',async (req,res) => {
+    try{
+    res.download(static_path +'/iot6.txt','iot6.txt');
+    }
+    catch(err){
+        console.error(err);
+    }
+});
+app.get('/iot7',async (req,res) => {
+    try{
+    res.download(static_path +'/iot7.txt','iot7.txt');
+    }
+    catch(err){
+        console.error(err);
+    }
+});
+app.get('/iot8',async (req,res) => {
+    try{
+    res.download(static_path +'iot8.txt','iot8.txt');
+    }
+    catch(err){
+        console.error(err);
+    }
+});
+app.get('/iot9',async (req,res) => {
+    try{
+    res.download(static_path +'/iot9.txt','iot9.txt');
+    }
+    catch(err){
+        console.error(err);
+    }
+});
+
 app.listen(PORT,() => {
     console.log(`listening on port ${PORT}`);
 });

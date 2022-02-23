@@ -1,0 +1,56 @@
+from flask import Flask, render_template
+import RPi.GPIO as GPIO
+import time
+LED_PIN=15
+GPIO.setwarnings(False)
+GPIO.setmode(GPIO.BOARD)
+GPIO.setup(LED_PIN,GPIO.OUT,initial=1)
+app=Flask(__name__)
+@app.route('/')
+def index():
+ return render_template('/index.html')
+@app.route('/ledon')
+def on():
+ GPIO.output(LED_PIN,GPIO.LOW)
+ return "led on"
+@app.route('/ledoff')
+def off():
+ GPIO.output(LED_PIN,GPIO.HIGH)
+ return "led off"
+@app.route('/ledgetstatus')
+def ledgetstatus():
+ while True:
+ status=GPIO.input(LED_PIN)
+ if status==True:
+ GPIO.output(LED_PIN,GPIO.HIGH)
+ return "status of bulb :OFF"
+ else:
+ GPIO.output(LED_PIN,GPIO.LOW)
+ return "status of bulb: ON"
+if __name__=='__main__':
+ app.run(debug='true',host='192.168.0.19',port=5000)#ip address of raspberry pi
+
+
+                                  HTML page
+
+
+<html>
+<body>
+<title> Raspberry Pi Demo of Program 8</title>
+<h1> Raspberry Pi get status of bulb at a remote place</h1>
+<form action="http://192.168.0.19:5000/ledon">
+<input type="submit" value ="ON">
+</form>
+<form action="http://192.168.0.19:5000/ledoff">
+<input type="submit" value ="OFF">
+</form>
+<form action="http://192.168.0.19:5000/ledgetstatus">
+<input type="submit" value ="getstatus">
+</form>
+</body>
+</html>
+
+
+ps -aef | grep python
+kill -9 "id"
+hostname -I
