@@ -157,7 +157,7 @@ app.get('/iot7',async (req,res) => {
 });
 app.get('/iot8',async (req,res) => {
     try{
-    res.download(static_path +'iot8.txt','iot8.txt');
+    res.download(static_path +'/iot8.txt','iot8.txt');
     }
     catch(err){
         console.error(err);
