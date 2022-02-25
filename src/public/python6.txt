@@ -1,0 +1,47 @@
+import matplotlib.pyplot as plt
+x1=[1,2,3,4,5]
+y1=[2,5,2,6,8]
+x2=[1,2,3,4,5]
+y2=[4,5,8,9,10]
+plt.xlabel("X Axis ",fontsize=12,fontstyle='italic')
+plt.ylabel('Y Axis ',fontsize=12)
+plt.title("Line plot ",fontsize=15,fontname='DejaVu Sans')
+plt.plot(x1,y1,color="red",label="First Graph")
+plt.plot(x2,y2,color='blue',label="Second Graph")
+plt.legend(loc=2)
+plt.grid()
+plt.show()
+
+x=['A','B','C','D','E']
+y=[20,50,20,60,80]
+plt.xlabel("X Axis",fontsize=12)
+plt.ylabel("Y Axis",fontsize=12)
+plt.title("Bar plot",fontsize=15)
+plt.bar(x,y,color="red",width=0.5)
+plt.show()
+
+x1=[1,2,3,4,5]
+y1=[2,5,2,6,8]
+x2=[1,2,3,4,5]
+y2=[4,5,8,9,10]
+plt.xlabel("X Axis",fontsize=12,fontstyle='italic')
+plt.ylabel("Y Axis",fontsize=12)
+plt.title("Line plot",fontsize=15,fontname='courier')
+plt.scatter(x1,y1,color="red",label="First Graph")
+plt.scatter(x2,y2,color="blue",s=150,marker="*",label="Second Graph")
+plt.plot(x2,y2,color="blue")
+plt.legend(loc=2)
+plt.show()
+
+import numpy as np
+sample=np.random.randint(10,100,30)
+plt.hist(sample,rwidth=0.7)
+plt.show()
+
+plt.figure(figsize=(7,7))
+slices=[10,20,50,30,34]
+act=['A','B','C','D','E']
+cols=['red','blue','green','pink','yellow']
+plt.pie(slices,labels=act,colors=cols,
+       autopct='%1.2f',explode=(0,0.2,0,0.1,0))
+plt.show()

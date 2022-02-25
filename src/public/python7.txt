@@ -1,0 +1,12 @@
+import numpy as np
+a=np.array([[12,4,5],[23,45,66],[45,34,23]])
+print("Printing Array")
+print()
+print(a)
+print()
+print("Printing numpy array Attributes")
+print("1>. Array shape is",a.shape)
+print("2>. Array dimensions are",a.ndim)
+print("3>. Datatype of array is ",a.dtype)
+print("4>. Length of each element of array in bytes is ",a.itemsize)
+print("5>. Number of elements in array are",a.size)

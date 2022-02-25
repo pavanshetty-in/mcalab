@@ -99,73 +99,73 @@ app.get('/get/java13',async (req,res) => {
     }
 });
 
-app.get('/iot1',async (req,res) => {
+app.get('/python1',async (req,res) => {
     try{
-    res.download(static_path +'/iot1.txt','iot1.txt');
+    res.download(static_path +'/python1.txt','python1.txt');
     }
     catch(err){
         console.error(err);
     }
 });
-app.get('/iot2',async (req,res) => {
+app.get('/python2',async (req,res) => {
     try{
-    res.download(static_path +'/iot2.txt','iot2.txt');
+    res.download(static_path +'/python2.txt','python2.txt');
     }
     catch(err){
         console.error(err);
     }
 });
-app.get('/iot3',async (req,res) => {
+app.get('/python3',async (req,res) => {
     try{
-    res.download(static_path +'/iot3.txt','iot3.txt');
+    res.download(static_path +'/python3.txt','python3.txt');
     }
     catch(err){
         console.error(err);
     }
 });
-app.get('/iot4',async (req,res) => {
+app.get('/python4',async (req,res) => {
     try{
-    res.download(static_path +'/iot4.txt','iot4.txt');
+    res.download(static_path +'/python4.txt','python4.txt');
     }
     catch(err){
         console.error(err);
     }
 });
-app.get('/iot5',async (req,res) => {
+app.get('/python5',async (req,res) => {
     try{
-    res.download(static_path +'/iot5.txt','iot5.txt');
+    res.download(static_path +'/python5.txt','python5.txt');
     }
     catch(err){
         console.error(err);
     }
 });
-app.get('/iot6',async (req,res) => {
+app.get('/python6',async (req,res) => {
     try{
-    res.download(static_path +'/iot6.txt','iot6.txt');
+    res.download(static_path +'/python6.txt','python6.txt');
     }
     catch(err){
         console.error(err);
     }
 });
-app.get('/iot7',async (req,res) => {
+app.get('/python7',async (req,res) => {
     try{
-    res.download(static_path +'/iot7.txt','iot7.txt');
+    res.download(static_path +'/python7.txt','python7.txt');
     }
     catch(err){
         console.error(err);
     }
 });
-app.get('/iot8',async (req,res) => {
+app.get('/python10',async (req,res) => {
     try{
-    res.download(static_path +'/iot8.txt','iot8.txt');
+    res.download(static_path +'/python10.txt','python10.txt');
     }
     catch(err){
         console.error(err);
     }
 });
-app.get('/iot9',async (req,res) => {
+app.get('/python11',async (req,res) => {
     try{
-    res.download(static_path +'/iot9.txt','iot9.txt');
+    res.download(static_path +'/python11.txt','python11.txt');
     }
     catch(err){
         console.error(err);
