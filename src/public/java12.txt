@@ -1,0 +1,41 @@
+                            MessageB.java
+public void onMessage(Message message) { 
+TextMessage t=null;
+ t=(TextMessage) message; 
+try {
+ System.out.println(t.getText());
+ }
+ catch (JMSException ex) { 
+Logger.getLogger(MessageB.class.getName()).log(Level.SEVERE, null, ex); 
+}
+
+                             index.jsp
+<%@page contentType="text/html" pageEncoding="UTF-8"%> 
+<!DOCTYPE html>
+ <html> 
+<head> <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"> 
+<title>JSP Page</title> </head>
+ <body> <form action="MDB"> 
+Type your message :<input type="text" name="msg"/><br>
+ <input type="submit"/> 
+</form>
+</body> </html>
+
+                             MDB.java
+public class MDB extends HttpServlet {
+ @Resource(mappedName = "jms/destlab12") 
+private Queue destlab12; 
+@Resource(mappedName = "jms/lab12") 
+private ConnectionFactory lab12;
+
+@Override protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+ PrintWriter out=response.getWriter(); 
+String m=request.getParameter("msg");
+ try { 
+sendJMSMessageToDestlab12(m); 
+}
+ catch (JMSException ex) { 
+Logger.getLogger(MDB.class.getName()).log(Level.SEVERE, null, ex); 
+}
+ out.println("check output in server log");
+}

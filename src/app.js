@@ -18,7 +18,7 @@ app.get('/' || '/get',async(req, res) => {
         }
 });
 
-app.get('/get/java1',async (req,res) => {
+app.get('/java1',async (req,res) => {
     try{
     res.download(static_path +'/java1.txt','java1.txt');
     }
@@ -26,7 +26,7 @@ app.get('/get/java1',async (req,res) => {
         console.error(err);
     }
 });
-app.get('/get/java2',async (req,res) => {
+app.get('/java2',async (req,res) => {
     try{
     res.download(static_path +'/java2.txt','java2.txt');
     }
@@ -34,7 +34,7 @@ app.get('/get/java2',async (req,res) => {
         console.error(err);
     }
 });
-app.get('/get/java3',async (req,res) => {
+app.get('/java3',async (req,res) => {
     try{
     res.download(static_path +'/java3.txt','java3.txt');
     }
@@ -42,7 +42,7 @@ app.get('/get/java3',async (req,res) => {
         console.error(err);
     }
 });
-app.get('/get/java4',async (req,res) => {
+app.get('/java4',async (req,res) => {
     try{
     res.download(static_path +'/java4.txt','java4.txt');
     }
@@ -50,7 +50,7 @@ app.get('/get/java4',async (req,res) => {
         console.error(err);
     }
 });
-app.get('/get/java5',async (req,res) => {
+app.get('/java5',async (req,res) => {
     try{
     res.download(static_path +'/java5.txt','java5.txt');
     }
@@ -58,7 +58,7 @@ app.get('/get/java5',async (req,res) => {
         console.error(err);
     }
 });
-app.get('/get/java6',async (req,res) => {
+app.get('/java6',async (req,res) => {
     try{
     res.download(static_path +'/java6.txt','java6.txt');
     }
@@ -66,7 +66,15 @@ app.get('/get/java6',async (req,res) => {
         console.error(err);
     }
 });
-app.get('/get/java8',async (req,res) => {
+app.get('/java7',async (req,res) => {
+    try{
+    res.download(static_path +'/java7.txt','java7.txt');
+    }
+    catch(err){
+        console.error(err);
+    }
+});
+app.get('/java8',async (req,res) => {
     try{
     res.download(static_path +'/java8.txt','java8.txt');
     }
@@ -74,7 +82,7 @@ app.get('/get/java8',async (req,res) => {
         console.error(err);
     }
 });
-app.get('/get/java9',async (req,res) => {
+app.get('/java9',async (req,res) => {
     try{
     res.download(static_path +'/java9.txt','java9.txt');
     }
@@ -82,7 +90,15 @@ app.get('/get/java9',async (req,res) => {
         console.error(err);
     }
 });
-app.get('/get/java11',async (req,res) => {
+app.get('/java10',async (req,res) => {
+    try{
+    res.download(static_path +'/java10.txt','java10.txt');
+    }
+    catch(err){
+        console.error(err);
+    }
+});
+app.get('/java11',async (req,res) => {
     try{
     res.download(static_path +'/java11.txt','java11.txt');
     }
@@ -90,7 +106,15 @@ app.get('/get/java11',async (req,res) => {
         console.error(err);
     }
 });
-app.get('/get/java13',async (req,res) => {
+app.get('/java12',async (req,res) => {
+    try{
+    res.download(static_path +'/java12.txt','java12.txt');
+    }
+    catch(err){
+        console.error(err);
+    }
+});
+app.get('/java13',async (req,res) => {
     try{
     res.download(static_path +'/java13.txt','java13.txt');
     }

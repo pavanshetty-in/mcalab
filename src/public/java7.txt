@@ -1,0 +1,36 @@
+                       Index.jsp
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>JSP Page</title>
+</head>
+<body>
+<h1>Applet Demo</h1>
+<jsp:plugin type="applet" code="MyApp.class" height="500" codebase="mypack" width="500">
+<jsp:fallback>
+unable to load
+</jsp:fallback>
+</jsp:plugin>
+<h4><font color=red>
+The above applet is loaded using the Java Plugin from a jsp page using the plugin tag
+</font>
+</body>
+</html>
+
+                          MyApp.java
+package mypack;
+import java.applet.Applet;
+import java.awt.Color;
+import java.awt.Graphics;
+public class MyApp extends Applet {
+public void init() {
+// TODO start asynchronous download of heavy resources
+}
+public void paint(Graphics g){
+setBackground(Color.red);
+setForeground(Color.blue);
+g.drawString("hello from jsp", 100, 200);
+}
+}

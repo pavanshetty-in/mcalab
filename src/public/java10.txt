@@ -1,0 +1,175 @@
+import java.sql.*;
+import java.util.Scanner;
+public class Student
+{
+Connection con;
+public void establishConnection()throws ClassNotFoundException,SQLException
+{
+Class.forName("com.mysql.jdbc.Driver");
+con=DriverManager.getConnection("jdbc:mysql://localhost:3306/studentlogin","root","rnsit");
+}
+public void sInsert(String usn, String name, String dept)throws ClassNotFoundException, SQLException
+{
+PreparedStatement pst=null;
+establishConnection();
+try
+{
+if(con!=null)
+{
+pst=con.prepareStatement("insert into student values(?,?,?)");
+pst.setString(1, usn);
+pst.setString(2,name);
+pst.setString(3,dept);
+int i=pst.executeUpdate();
+if(i==1)
+{
+System.out.println("Record inserted successfully");
+} } }
+catch(SQLException e)
+{
+System.err.println(e.getMessage());
+}
+finally
+{
+pst.close();
+con.close();
+} }
+public void sSelect(String usn)throws ClassNotFoundException,SQLException
+{
+PreparedStatement pst=null;
+ResultSet res;
+establishConnection();
+try
+{
+if(con!=null)
+{
+pst=con.prepareStatement("select * from student where usn=?");
+pst.setString(1, usn);
+res=pst.executeQuery();
+if(res.next())
+{
+System.out.println("USN= "+res.getString(1)+"\tName="+ res.getString(2)+ "\tDepartment=
+"+res.getString(3));
+} } }
+finally
+{
+pst.close();
+con.close();
+} }
+public void sUpdate(String usn, String name, String dept)throws ClassNotFoundException, SQLException
+{
+PreparedStatement pst=null;
+establishConnection();
+try
+{
+if(con!=null)
+{
+pst=con.prepareStatement("update student set name=?,dept=? where usn=?");
+pst.setString(1, name);
+pst.setString(2,dept);
+pst.setString(3,usn);
+int i=pst.executeUpdate();
+System.out.println(i);
+if(i==1)
+{
+System.out.println("Record updated successfully");
+} } }
+finally
+{
+pst.close();
+con.close();
+} }
+public void sDelete(String usn)throws ClassNotFoundException, SQLException
+{
+PreparedStatement pst=null;
+establishConnection();
+try
+{
+if(con!=null)
+{
+pst=con.prepareStatement("delete from student where usn=?");
+pst.setString(1, usn);
+int i=pst.executeUpdate();
+if(i==1)
+{
+System.out.println("Record deleted successfully");
+} } }
+catch(SQLException e)
+{
+System.err.println(e.getMessage());
+}
+finally
+{
+pst.close();
+con.close();
+} }
+public void viewAll( )throws ClassNotFoundException, SQLException
+{
+PreparedStatement pst=null;
+ResultSet res;
+establishConnection();
+try
+{
+if(con!=null)
+{
+pst=con.prepareStatement("select * from student");
+res=pst.executeQuery();
+while(res.next())
+{
+System.out.println("USN= "+res.getString(1)+"\tName="+res.getString(2)+"\tDepartment=
+"+res.getString(3));
+} } }
+catch(SQLException e)
+{
+System.err.println(e.getMessage());
+}
+finally
+{
+pst.close();
+con.close();
+} }
+public static void main(String[] a) throws ClassNotFoundException, SQLException
+{
+Student std=new Student();
+String usn,name,dept;
+Scanner sc=new Scanner(System.in);
+while(true)
+{
+System.out.println("Operations on Student table");
+System.out.println("1.Insert\n2.Select\n3.Update\n4.Delete\n5.View All\n6.Exit");
+System.out.println("select the operation");
+switch(sc.nextInt())
+{
+case 1: System.out.println("Enter USN to insert");
+usn=sc.next();
+System.out.println("Enter Name to insert");
+name=sc.next();
+System.out.println("Enter Deaprtment to insert");
+dept=sc.next();
+std.sInsert(usn, name, dept);
+break;
+case 2: System.out.println("Enter USN to select");
+usn=sc.next();
+std.sSelect(usn);
+break;
+case 3: System.out.println("Enter USN to update");
+usn=sc.next();
+System.out.println("Enter Name to update");
+name=sc.next();
+System.out.println("Enter department to update");
+dept=sc.next();
+std.sUpdate(usn, name, dept);
+break;
+case 4: System.out.println("Enter USN to delete");
+usn=sc.next();
+std.sDelete(usn);
+break;
+case 5: std.viewAll();
+break;
+case 6: System.exit(0);
+default: System.out.println("Invalid operation");
+break;
+}
+}
+}
+}
